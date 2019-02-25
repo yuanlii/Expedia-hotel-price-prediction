@@ -1,0 +1,1 @@
+This is a project for mastery course SI699. The data that we would be using is available on https://www.kaggle.com/c/expedia-personalized-sort/data.
