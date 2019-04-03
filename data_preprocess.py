@@ -3,6 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib
+from sklearn.metrics import mean_squared_error
 
 class Data_preprocess():
     def __init__(self, train_file_path, test_file_path):
@@ -56,3 +57,5 @@ class Data_preprocess():
             mid_idx_lst.append(mid_idx)
         self.sampled_data = self.all_data.iloc[mid_idx_lst]
         return self.sampled_data
+
+    

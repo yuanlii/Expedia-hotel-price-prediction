@@ -146,7 +146,8 @@ class Moving_average(object):
         pred_model_convert = np.exp(pred_model)
         plt.plot(self.timeseries)
         plt.plot(pred_model_convert)
-        plt.title('RMSE: %.4f'% np.sqrt(sum((pred_model_convert-self.timeseries)**2)/len(self.timeseries)))
+        # plt.title('RMSE: %.4f'% np.sqrt(sum((pred_model_convert-self.timeseries)**2)/len(self.timeseries)))
+        plt.title('RMSE: %.4f'% np.sqrt(sum((pred_model_convert-self.timeseries.shift())**2)/len(self.timeseries)))
         return pred_model_convert
 
 

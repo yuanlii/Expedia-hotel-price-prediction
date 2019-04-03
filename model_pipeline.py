@@ -92,15 +92,19 @@ class modeling_pipeline():
     def get_RMSE(self,y_pred,y_true,data):
         return np.sqrt(sum((y_pred - y_true)**2)/len(data))
     
+    # updated: adding y_pred_test and test_RMSE
     def get_modeling_result(self):
         reg = self.model.fit(self.X_train, self.y_train)
         y_pred_val = reg.predict(self.X_val)
         y_pred_train = reg.predict(self.X_train)
+        y_pred_test = reg.predict(self.X_test)
         val_RMSE = self.get_RMSE(y_pred_val, self.y_val, self.val_data)
         train_RMSE = self.get_RMSE(y_pred_train ,self.y_train, self.train_data)
+        test_RMSE = self.get_RMSE(y_pred_test ,self.y_test, self.test_data)
         print('training RMSE:',train_RMSE)
         print('valiation RMSE:',val_RMSE)
-        return train_RMSE, val_RMSE
+        print('test RMSE:',test_RMSE)
+        return y_pred_train, y_pred_val, y_pred_test
 
     def get_normalized_modeling_result(self):
         reg = self.model.fit(self.X_train_normalized, self.y_train)
