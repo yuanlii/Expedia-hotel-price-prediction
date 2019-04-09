@@ -2,13 +2,15 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
-os.chdir('/Users/liyuan/desktop/SI699/codes')
+# import os
+# os.chdir('/Users/liyuan/desktop/SI699/codes')
 from scipy import stats
 from sklearn.linear_model import LinearRegression
 
 from reformat_data_by_day import Reformat_data
 from model_pipeline import modeling_pipeline
+
+# by property raise the sparsity problem --> can try aggregate by region + by property or by region + by star-rating
 
 class TimeFeatureModeling():
     def __init__(self):
@@ -48,8 +50,10 @@ class TimeFeatureModeling():
         price_data = data[['date_time','price_usd']]
         # extract "day","month", "quarter" signals and create new columns
         price_data['day'] = price_data['date_time'].apply(lambda x: x.day)
+        price_data['week'] = price_data['date_time'].apply(lambda x: x.week)
         price_data['month'] = price_data['date_time'].apply(lambda x: x.month)
         price_data['quarter'] = price_data['date_time'].apply(lambda x: x.quarter)
+        print('price data len:', len(price_data)) # debugging
         return price_data
 
     # we would want to observe the variations of price data
@@ -79,17 +83,27 @@ class TimeFeatureModeling():
         price_by_quarter = price_data[['price_usd','quarter']].groupby('quarter').mean()
         print('variance of data: %d'%np.var(price_by_quarter))
         return price_by_quarter
+    
+    def agg_by_week(self, price_data):
+        # group by week
+        price_by_week = price_data[['price_usd','week']].groupby('week').mean()
+        print('variance of data: %d'%np.var(price_by_week))
+        return price_by_week
         
     # with time features that we extracted, it can be used to build regression model
     def regression_model(self, price_data):
-        variables = ['day','month','quarter']
+        # update: adding 'week'
+        variables = ['day','month','quarter','week']
         mp = modeling_pipeline(price_data,LinearRegression(),variables)
         mp.split_data()
         X_train, y_train, X_val, y_val, X_test, y_test = mp.get_X_y()
         y_pred_train, y_pred_val, y_pred_test = mp.get_modeling_result()
         return y_pred_train, y_pred_val, y_pred_test
+    
+    def regression_model_updated(self,):
+        pass
+
 
     
-    # TODO: by property raise the sparsity problem --> can try aggregate by region + by property or by region + by star-rating
-    # TODO: how to combine moving average and regression model --> emsemble?
+    
 

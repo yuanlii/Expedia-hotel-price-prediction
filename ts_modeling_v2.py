@@ -10,6 +10,7 @@ from sklearn.model_selection import TimeSeriesSplit
 from reformat_data_by_day import Reformat_data
 from time_feature_modeling import TimeFeatureModeling
 from model_pipeline import modeling_pipeline
+from help import get_predictions
 
 class TsModeling(object):
     def __init__(self):
@@ -18,7 +19,8 @@ class TsModeling(object):
         # self.training_size = 0
         # self.validation_size = 0
         # self.test_size = 0
-    
+
+        # X (only refers to the 'date_time' used in ARIMA model)
         self.train = np.array([])
         self.val = np.array([])
         self.test = np.array([])
@@ -33,7 +35,7 @@ class TsModeling(object):
 
     def load_data(self, input_data_path):
         # load sampled data (10000 exampless)
-        self.data = pd.read_csv('../res/cleaned_sampled_data_10000.csv')
+        self.data = pd.read_csv(input_data_path)
         # resample data by day
         self.data['date_time'] = pd.to_datetime(self.data.date_time)
         self.data = self.data.set_index('date_time')
@@ -60,6 +62,13 @@ class TsModeling(object):
         sorted_starratings = sorted(dest_data_by_starrating, key = lambda x: len(dest_data_by_starrating[x]),reverse = True )
         dest_data_star = dest_data[dest_data['prop_starrating'] == sorted_starratings[0]]
         return dest_data_star
+
+    # updated: process data by prop
+    def process_data_by_prop(self,prop_data):
+        prop_data['date_time'] = pd.to_datetime(prop_data.date_time)
+        prop_data = prop_data.set_index('date_time')
+        prop_data = prop_data[['price_usd']]
+        return prop_data  
 
 
     def get_auto_correlation(self,data):
@@ -127,6 +136,7 @@ class TsModeling(object):
         '''fit regression model'''
         tm = TimeFeatureModeling()
         price_data = tm.extract_time_features(data)
+        print(len(price_data)) # debugging
         tm.plot_data_trend(price_data)
         self.regression_y_pred_train, self.regression_y_pred_val, self.regression_y_pred_test = tm.regression_model(price_data)
         return self.regression_y_pred_train, self.regression_y_pred_val, self.regression_y_pred_test
@@ -144,10 +154,14 @@ class TsModeling(object):
 
 
     def second_data_prepare(self):
-        '''valid_data e.g., hotel price by 1 dest by 1 starrating '''
+        '''valid_data e.g., hotel price by 1 dest by 1 starrating;
+            when stacking predictions from multiple models, need to pay attention to the preprocessing and formatting:
+                a. need to reshape the predictions to (-1,1) shape
+                b. need to stack the predicion results vertically (by columns)
+            '''
         # regression results reformat
         # self.regression_y_pred_val[1:] --> handle dimension mismatch
-        regression_y_pred_val = self.regression_y_pred_val[1:].reshape(-1,1)
+        regression_y_pred_val = self.regression_y_pred_val.reshape(-1,1)
         # regression_y_pred_val = self.regression_y_pred_val[:-1].reshape(-1,1)
         regression_y_pred_test = self.regression_y_pred_test.reshape(-1,1)
         print(regression_y_pred_val.shape)

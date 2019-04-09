@@ -13,6 +13,8 @@ class Reformat_data():
         self.categorical_binary_vars = []
         self.continuous_vars = []
         self.dest_data_list = {}
+        # each property and its associated data
+        self.prop_data_list = {}
         self.datetime_range = []
         # list destination id with enough data
         self.valid_dest_list = []
@@ -45,6 +47,15 @@ class Reformat_data():
             destination_data = self.data[self.data['srch_destination_id'] == srch_destination_id]
             self.dest_data_list[srch_destination_id] = destination_data
         return self.dest_data_list
+
+    # updated: get data by property_id
+    def get_data_by_prop(self):
+        prop_ids = self.data['prop_id'].unique().tolist()
+        for prop_id in prop_ids:
+            prop_data = self.data[self.data['prop_id'] == prop_id]
+            self.prop_data_list[prop_id] = prop_data
+        return self.prop_data_list
+
     
     def get_datetime_range(self):
         # covert 'date_time' to datetime object
@@ -70,13 +81,6 @@ class Reformat_data():
                 self.valid_dest_list.append(dest_id)
         return self.valid_dest_list
     
-#     def concatenate_daily_price(self):
-#         '''concatenate daily price data of all destinations'''
-#         # TODO: need to merge multiple 
-#         for dest_id in self.dest_data_list.keys():
-#             self.daily_price_data.append(self.get_daily_price(dest_id))
-#         self.all_daily_price = pd.concat(self.daily_price_data, ignore_index=True) 
-#         return self.all_daily_price  
     
     def get_all_daily_price(self):
         '''get a dictionary --> key:destination_id, value: daily price dataframe'''
@@ -94,5 +98,5 @@ class Reformat_data():
         return daily_price
 
     def get_month_signal(self):
-        self.data
+        pass
                 
