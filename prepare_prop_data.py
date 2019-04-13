@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # author: Crystal
 # created time: 04/12/2019
 
+=======
+>>>>>>> 7665d8142ec10a028b74f61c211eeebe5f9831ec
 # prepare data
 import pandas as pd
 import numpy as np
@@ -48,6 +51,10 @@ from sklearn.linear_model import ElasticNet
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7665d8142ec10a028b74f61c211eeebe5f9831ec
 # replace id by popularity
 def popularity_replace(data, feature):
     counts = data[feature].value_counts()
@@ -145,7 +152,10 @@ class data_get():
         self.X_test = self.test_data[self.variables]
         self.y_test = self.test_data['price_usd']
         return self.X_train, self.y_train, self.X_test, self.y_test 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7665d8142ec10a028b74f61c211eeebe5f9831ec
     # KFold method to split data for cross validation
     def get_kf_list(self):
         kf = KFold(n_splits = 5)
