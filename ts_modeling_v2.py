@@ -6,6 +6,7 @@ from pandas.tools.plotting import autocorrelation_plot
 from statsmodels.tsa.arima_model import ARIMA
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import TimeSeriesSplit
+from sklearn.model_selection import KFold
 
 from reformat_data_by_day import Reformat_data
 from time_feature_modeling import TimeFeatureModeling
@@ -92,6 +93,50 @@ class TsModeling(object):
         self.val = X[self.training_size:(self.training_size + self.validation_size)]
         self.test = X[(self.training_size + self.validation_size):]
         return self.train, self.val, self.test
+
+    # updated: split data for cross validation (04/13/2019)
+    def split_data_cv(self):
+        '''get train, test set for cross validation '''
+        training_size = int(len(self.data) * 0.8)   
+        test_size = int(len(self.data) * 0.2)
+        print('training size: %d'%training_size)
+        print('test size: %d'%test_size)
+        # split data by temporal order
+        train_data = self.data.iloc[0: training_size]
+        test_data = self.data.iloc[training_size:]
+        return train_data, test_data
+
+    # updated: cross validation written by Crystal (04/13/2019)
+    def get_kf_list(self):
+        y_train = self.val
+        
+        kf = KFold(n_splits = 5)
+        result = []
+        for train, test in kf.split(self.train):
+            result.append([train, test])
+        n = 0
+        for i in result:
+            X_train_kf.append(self.train.iloc[result[n][0]])
+            X_test_kf.append(self.train.iloc[result[n][1]])
+            y_train_kf.append(y_train.iloc[result[n][0]])
+            y_test_kf.append(y_train.iloc[result[n][1]])
+            n =+ 1
+        return X_train_kf, X_test_kf, y_train_kf, y_test_kf
+
+    # updated:cross validation written by Crystal  (04/13/2019)
+    def get_ts_list(self):
+        tscv = TimeSeriesSplit(n_splits=5)
+        result_ts = []
+        for train, test in tscv.split(self.X_train):
+            result_ts.append([train, test])
+        n = 0
+        for i in result_ts:
+            self.X_train_ts.append(self.X_train.iloc[result_ts[n][0]])
+            self.X_test_ts.append(self.X_train.iloc[result_ts[n][1]])
+            self.y_train_ts.append(self.y_train.iloc[result_ts[n][0]])
+            self.y_test_ts.append(self.y_train.iloc[result_ts[n][1]])
+            n =+ 1
+        return self.X_train_ts, self.X_test_ts, self.y_train_ts, self.y_test_ts
 
 
     def get_model_performance(self, history, data, p,d,q):

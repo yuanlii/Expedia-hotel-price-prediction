@@ -1,11 +1,11 @@
 # Project Goal
-=============
+--------------
 
 This is a project for mastery course SI699. The data that we would be using is available on https://www.kaggle.com/c/expedia-personalized-sort/data.
 
 
 # Codes Explanation
-==================
+--------------------
 
     [About basic modeling pipeline]:
     -------------------------------
@@ -77,9 +77,22 @@ This is a project for mastery course SI699. The data that we would be using is a
                         vs. ts_modeling_v3.ipynb - predict price by property_id
             - updated: rewrite functions into a class, that allows you to enter a prop_id, and get the predicted pricestacking
         
-        time_property_modeling.ipynb: (Most Recent)
+        time_property_modeling.ipynb: 
             - combine time modeling + property feature modeling
             - TODO: seem to overfit => can try stack three models directly, instead of fit a second-layer model for time and combine with property feature modeling
+        
+        # updated: 04/13/2019
+        sample_prop.ipynb:
+            - this file is used to get a sample pool of properties; currently randomly sample 1000 prop id from the entire dataset, and get the distribution of daily data records of each prop id. Then set 75% percentile for choosing the higher bound of picking prop id, we would say that only prop id with valid records larger than this threshold would be considered for prediction.
+        
+        # updated: 04/13/2019
+        time_property_modeling_v2.ipynb:
+            - TODO: apply timeseries cross validation for ARIMA modeling
+            - problem: 
+            train(e.g., 65 examples) => predict test (e.g., 64 examples) 
+            => ARIMA fail to predict becasue of insufficient degree of freedom
+            vs. train (0-10) -> test (11)
+                train (0-11) -> test(12)
         
 
     [Other codes]:
@@ -89,7 +102,7 @@ This is a project for mastery course SI699. The data that we would be using is a
             - feature selection: categorical variables check p-value and chi2 score
       
 # Data files
-============
+------------
     
     experdia_data folder:
         - train.csv
@@ -102,6 +115,9 @@ This is a project for mastery course SI699. The data that we would be using is a
         
         
 # TODO
-=====     
+------
+
+# MISC
+    did not store all data (concatinating train and test data) in expedia_data folder due to lack of computer memory
     
 
