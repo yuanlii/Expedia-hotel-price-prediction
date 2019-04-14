@@ -50,7 +50,7 @@ storing codes that are relevant to seq2seq implementation
     - reference from si671 project codes (more to see in github)
     - TODO: this only get the training error; need to have a better understanding about the code logics behind and get out-sample error
         
-* ts_modeling_v2.ipynb: (by destination + by starratings)
+* ts_modeling_v2.ipynb:     _(by destination + by starratings)_
     - using AR, MA, and ARIMA model + implement Grid search for each model: ARIMA model performs best; parameter sets p,d,q =(2,1,1)
     - stacking ARIMA model and regression modeling (trying Linear regression, ridge, XGboost for second-layer regression)
     - in use with "ts_modeling_v2.py"
@@ -75,8 +75,6 @@ storing codes that are relevant to seq2seq implementation
         - TODO: seem to overfit => can try stack three models directly, instead of fit a second-layer model for time and combine with property feature modeling
         
         
-        
-        
 * time_cv.ipynb: _(updated: 04/13/2019)_
         - TODO: apply timeseries cross validation for ARIMA modeling
         - problem: 
@@ -87,30 +85,30 @@ storing codes that are relevant to seq2seq implementation
 
 ### About property feature modeling
 * prop_modeling.py:
-        - modified based on features_prop_update.ipynb 
-        - rewrite functions into class
+    - modified based on features_prop_update.ipynb 
+    - rewrite functions into class
 
     
 ### About property + time feature modeling
 * time_property_modeling_v2.ipynb
-        - TODO: predict for each property
+    - TODO: predict for each property
             
     
 
 ### Other codes
 * modeling-trial2.ipynb:
-        - feature selection: categorical variables check p-value and chi2 score
+    - feature selection: categorical variables check p-value and chi2 score
             
       
 # Data files
 #### experdia_data folder:
-    - train.csv
-    - test.csv
-    - all_data.csv (not remember how to get this in the first place; however, the total length of records not match train and test combined)
+- train.csv
+- test.csv
+- all_data.csv (not remember how to get this in the first place; however, the total length of records not match train and test combined)
 
 #### res folder:
-    - ElasticNet_y_pred_XX.csv => from Crtystal property feature modeling prediction results
-    - sampled_data_1000000.csv => sampled data to build code pipelines
+- ElasticNet_y_pred_XX.csv => from Crtystal property feature modeling prediction results
+- sampled_data_1000000.csv => sampled data to build code pipelines
 
     
 
