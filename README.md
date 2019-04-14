@@ -5,7 +5,7 @@ This is a project for mastery course SI699. The data that we would be using is a
 
 # Codes Explanation
 
-    [About modeling pipeline in general]:
+    ## About modeling pipeline in general:
     ------------------------------------
         basic_model_pipeline_v2.ipynb:
             - use 5000 examples
