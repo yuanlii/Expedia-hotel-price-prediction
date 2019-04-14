@@ -86,13 +86,14 @@ This is a project for mastery course SI699. The data that we would be using is a
             - this file is used to get a sample pool of properties; currently randomly sample 1000 prop id from the entire dataset, and get the distribution of daily data records of each prop id. Then set 75% percentile for choosing the higher bound of picking prop id, we would say that only prop id with valid records larger than this threshold would be considered for prediction.
         
         # updated: 04/13/2019
-        time_property_modeling_v2.ipynb:
+        time_cv.ipynb:
             - TODO: apply timeseries cross validation for ARIMA modeling
             - problem: 
             train(e.g., 65 examples) => predict test (e.g., 64 examples) 
             => ARIMA fail to predict becasue of insufficient degree of freedom
             vs. train (0-10) -> test (11)
                 train (0-11) -> test(12)
+              
         
 
     [Other codes]:
