@@ -7,9 +7,8 @@ This is a project for mastery course SI699. The data that we would be using is a
 # Codes Explanation
 --------------------
 
-    [About basic modeling pipeline]:
-    -------------------------------
-    
+    [About modeling pipeline in general]:
+    ------------------------------------
         basic_model_pipeline_v2.ipynb:
             - use 5000 examples
             - basic code pipeline for modeling, try basic regression model, e.g., linear regression, ridge regression, etc.
@@ -17,12 +16,14 @@ This is a project for mastery course SI699. The data that we would be using is a
         basic_model_pipeline_v3.ipynb:
             - using 10000 examples 
             - basic code pipeline for modeling, try basic regression model, e.g., linear regression, ridge regression, etc.
-        
+
+        # updated: 04/13/2019
+        sample_prop.ipynb:
+            - this file is used to get a sample pool of properties; currently randomly sample 1000 prop id from the entire dataset, and get the distribution of daily data records of each prop id. Then set 75% percentile for choosing the higher bound of picking prop id, we would say that only prop id with valid records larger than this threshold would be considered for prediction.
         
         
     [seq2seq folder]:
     ----------------
-    
         storing codes that are relevant to seq2seq implementation
         - seq2seq_v3.ipynb:
             - Currently working on resampling data by days, input would be the previous seven days' hotel price, and the output would be hotel prices of the next seven days
@@ -33,7 +34,6 @@ This is a project for mastery course SI699. The data that we would be using is a
 
     [About time features modeling]:
     ------------------------------
-         
         time_feature_modeling.py:
             - aggregate price data by each property id
             - extract time features (day,month,quarter,etc.) and observe the price variations by each time features; ideally we would want to see enough variations by each of these time features, so that we can be confident to build regression model upon them
@@ -81,9 +81,7 @@ This is a project for mastery course SI699. The data that we would be using is a
             - combine time modeling + property feature modeling
             - TODO: seem to overfit => can try stack three models directly, instead of fit a second-layer model for time and combine with property feature modeling
         
-        # updated: 04/13/2019
-        sample_prop.ipynb:
-            - this file is used to get a sample pool of properties; currently randomly sample 1000 prop id from the entire dataset, and get the distribution of daily data records of each prop id. Then set 75% percentile for choosing the higher bound of picking prop id, we would say that only prop id with valid records larger than this threshold would be considered for prediction.
+        
         
         # updated: 04/13/2019
         time_cv.ipynb:
@@ -93,14 +91,26 @@ This is a project for mastery course SI699. The data that we would be using is a
             => ARIMA fail to predict becasue of insufficient degree of freedom
             vs. train (0-10) -> test (11)
                 train (0-11) -> test(12)
-              
-        
+
+    [About property feature modeling]:
+    ---------------------------------
+        prop_modeling.py:
+            - modified based on features_prop_update.ipynb 
+            - rewrite functions into class
+
+    
+    [About property + time feature modeling]:
+    ----------------------------------------
+        - time_property_modeling_v2.ipynb
+            - TODO: predict for each property
+            
+    
 
     [Other codes]:
     -------------
-    
         modeling-trial2.ipynb:
             - feature selection: categorical variables check p-value and chi2 score
+            
       
 # Data files
 ------------
