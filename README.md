@@ -1,11 +1,9 @@
 # Project Goal
---------------
 
 This is a project for mastery course SI699. The data that we would be using is available on https://www.kaggle.com/c/expedia-personalized-sort/data.
 
 
 # Codes Explanation
---------------------
 
     [About modeling pipeline in general]:
     ------------------------------------
@@ -113,7 +111,6 @@ This is a project for mastery course SI699. The data that we would be using is a
             
       
 # Data files
-------------
     
     experdia_data folder:
         - train.csv
@@ -123,12 +120,6 @@ This is a project for mastery course SI699. The data that we would be using is a
     res folder:
         - ElasticNet_y_pred_XX.csv => from Crtystal property feature modeling prediction results
         - sampled_data_1000000.csv => sampled data to build code pipelines
-        
-        
-# TODO
-------
 
-# MISC
-    did not store all data (concatinating train and test data) in expedia_data folder due to lack of computer memory
     
 
