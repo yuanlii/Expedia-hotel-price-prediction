@@ -4,20 +4,18 @@ This is a project for mastery course SI699. The data that we would be using is a
 
 
 # Codes Explanation
+## About modeling pipeline in general:
+* basic_model_pipeline_v2.ipynb:
+    - use 5000 examples
+    - basic code pipeline for modeling, try basic regression model, e.g., linear regression, ridge regression, etc.
 
-    ## About modeling pipeline in general:
-    ------------------------------------
-        basic_model_pipeline_v2.ipynb:
-            - use 5000 examples
-            - basic code pipeline for modeling, try basic regression model, e.g., linear regression, ridge regression, etc.
+* basic_model_pipeline_v3.ipynb:
+    - using 10000 examples 
+    - basic code pipeline for modeling, try basic regression model, e.g., linear regression, ridge regression, etc.
 
-        basic_model_pipeline_v3.ipynb:
-            - using 10000 examples 
-            - basic code pipeline for modeling, try basic regression model, e.g., linear regression, ridge regression, etc.
-
-        # updated: 04/13/2019
-        sample_prop.ipynb:
-            - this file is used to get a sample pool of properties; currently randomly sample 1000 prop id from the entire dataset, and get the distribution of daily data records of each prop id. Then set 75% percentile for choosing the higher bound of picking prop id, we would say that only prop id with valid records larger than this threshold would be considered for prediction.
+        
+* sample_prop.ipynb: _(updated: 04/13/2019)_
+    - this file is used to get a sample pool of properties; currently randomly sample 1000 prop id from the entire dataset, and get the distribution of daily data records of each prop id. Then set 75% percentile for choosing the higher bound of picking prop id, we would say that only prop id with valid records larger than this threshold would be considered for prediction.
         
         
     [seq2seq folder]:
