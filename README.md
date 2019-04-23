@@ -82,11 +82,17 @@ storing codes that are relevant to seq2seq implementation
         => ARIMA fail to predict becasue of insufficient degree of freedom
         vs. train (0-10) -> test (11)
             train (0-11) -> test(12)
+            
+* time_property_modeling_v3.ipynb:(updated: 04/23/2019)
+    - reorganize codes of stacking modeling of property feature and time feature
+    - get prediction results for more prop_id
 
 ### About property feature modeling
-* prop_modeling.py:
+
+* prop_modeling_v3.py:
     - modified based on features_prop_update.ipynb 
     - rewrite functions into class
+    - based on fixed error by Crystal
 
     
 ### About property + time feature modeling
@@ -98,6 +104,8 @@ storing codes that are relevant to seq2seq implementation
 ### Other codes
 * modeling-trial2.ipynb:
     - feature selection: categorical variables check p-value and chi2 score
+    
+
             
       
 # Data files
