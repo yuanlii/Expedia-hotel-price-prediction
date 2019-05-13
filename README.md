@@ -87,10 +87,14 @@ For time feature modeling, we would use ARIMA.
 
 ![multi-layer modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/second_layer_prediction.png)
 
+
 ## Conclusion
+
+For the first-layer modeling, we fit different models based on the characteristics of different feature group. For property feature modeling, Elastic Net shows the best performance, followed by Random Forest. In terms of time feature modeling, we fit ARIMA and linear regression model. Ultimately, we used the result from first-layer models, and fit a second-layer model, which turns out that XGBoost shows the best performance.
 
 
 ## More Exploration
+
 
 
 ## Reflections
