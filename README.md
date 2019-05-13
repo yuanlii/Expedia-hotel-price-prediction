@@ -19,11 +19,18 @@ We use Personalize Expedia hotel searches – ICDM 2013 from online Kaggle compe
 ## Data Preprocess
 
 1. Handle missing data
-    * To handle variables with missing data > 50%, we would create a binary variable as indictor of whether the data is missing or not for a specific data record 
-    * If variable with missing data < 50%, we would replace NA values with median values
+* To handle variables with missing data > 50%, we would create a binary variable as indictor of whether the data is missing or not for a specific data record 
+* If variable with missing data < 50%, we would replace NA values with median values
+    
+5. Log transform skewed data
+First, we compute the skewness for each numeric variable. We defined variables with skewness > 0.75 as "highly skewed", and we would log transformed those variables with high skewness to make them more normaly distributed. 
+   * more about skewness: For normally distributed data, the skewness should be about 0. For unimodal continuous distributions, a skewness value > 0 means that there is more weight in the right tail of the distribution. ([reference]((https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skew.html)))
+
+![skewed price data](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/skewed_price_log_transformed.png)
     
 2. Outlier value detection
-    * hotel room rates can have as low as $0.2/night, and as high as $+5m/night; we remove those outliers that are significantly deviated from the rest of hotel room rate distribution
+* Hotel room rates can have as low as $0.2/night, and as high as $+5m/night; we remove those outliers that are significantly deviated from the rest of hotel room rate distribution
+    
     
 3. Convert categorical variables to continuous variables
     * for categorical variables with more than 100 instances, e.g., country_id, destination_id, property_id, etc. it wouldn't make sense to one-hot encoding them all; so what we did is to compute the popularity, i.e., how many times each instance of a category ever appear in the dataset to represent the instance itself. For example, for property_id = 116942, we count how many records with property_id = 116942 are there in the dataset, and use that continuous number to represent property_id = 116942. Same logic and transformation is applied to country_id and destination_id as well as other categorical variables.
@@ -31,8 +38,9 @@ We use Personalize Expedia hotel searches – ICDM 2013 from online Kaggle compe
 4. Aggregate data based on time range
     * Our ultimate goal is to predict hotel room rate for one property listing in one single day. However, from the Expedia dataset, it only lists the data per user search and potential at multiple timestamps within a day, so we would need to aggregate the data by day. 
     
-5. Log transform skewed data
-![skewed price data](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/skewed_price_log_transformed.png)
+    
+
+
 
 
 ## Feature Importance
