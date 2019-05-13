@@ -66,6 +66,11 @@ We applied a multi-layer modeling approach to resolve the complexity of the prob
 ## Results
 ### 1. Property Modeling
 
+For property feature group modeling, we fit several linear and non-linear models inclusing Ridge, Random Forest, Elastic Net, etc., and compare the performance of each of the model. Elastic Net turns out to have the best performance in modeling property features.
+   * TODO: more about Elastic Net
+
+![property modeling results](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/prop_modeling_result.png)
+
 ### 2. Time Modeling
 
 ### 3. Multi-layer Modeling
