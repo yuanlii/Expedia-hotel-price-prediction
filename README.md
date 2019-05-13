@@ -65,32 +65,6 @@ We applied a multi-layer modeling approach to resolve the complexity of the prob
 
 ![modeling structure](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/modeling_structure.png)
 
-## Results
-### 1. Property Modeling
-
-For property feature group modeling, we fit several linear and non-linear models inclusing Ridge, Random Forest, Elastic Net, etc., and compare the performance of each of the model. Elastic Net turns out to have the best performance in modeling property features.
-   * TODO: more about Elastic Net
-
-![property modeling results](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/prop_modeling_result.png)
-
-### 2. Time Modeling
-
-For time feature modeling, we would use ARIMA. 
-
-![Autocorrelation](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/autocorrelation_v3.png)
-
-![Time-series Modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/ts_prediction.png)
-
-![time prediction results](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/time_modeling_v2.png)
-
-### 3. Multi-layer Modeling
-
-![multi-layer modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/second_layer_prediction.png)
-
-
-## Conclusion
-
-For the first-layer modeling, we fit different models based on the characteristics of different feature group. For property feature modeling, Elastic Net shows the best performance, followed by Random Forest. In terms of time feature modeling, we fit ARIMA and linear regression model. Ultimately, we used the result from first-layer models, and fit a second-layer model, which turns out that XGBoost shows the best performance.
 
 
 ## More Exploration
