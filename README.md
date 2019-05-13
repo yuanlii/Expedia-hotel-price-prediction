@@ -48,12 +48,7 @@ Our ultimate goal is to predict hotel room rate for one property listing in one 
 
 ## Feature Importance
 
-In order to understand the importance of each feature, we use Lasso for modeling and get the feature importance result that looks like below:
-
-![Lasso coefficient](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/Lasso_coefficient.png)
-
-
-Feature Importance by using XGBoost:
+In order to understand the importance of each feature, we use XGBoost to get the importance of each feature:
 
 ![XGBoost feature importance](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/feature_importance_XGBosot.png)
 
