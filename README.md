@@ -52,6 +52,7 @@ In order to understand the importance of each feature, we use XGBoost to get the
 
 ![XGBoost feature importance](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/feature_importance_XGBosot.png)
 
+From which we can tell that prop_country_id, prop_log_historical_price and prop_review_score are the top 3 most importance features.
 
 
 ## Modeling
