@@ -53,6 +53,9 @@ In order to understand the importance of each feature, we use Lasso for modeling
 ![Lasso coefficient](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/Lasso_coefficient.png)
 
 
+Feature Importance by using XGBoost:
+
+![XGBoost feature importance](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/feature_importance_XGBosot.png)
 
 
 
