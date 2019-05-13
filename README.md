@@ -44,6 +44,8 @@ For categorical variables with more than 100 instances, e.g., country_id, destin
 
 Our ultimate goal is to predict hotel room rate for one property listing in one single day. However, from the Expedia dataset, it only lists the data per user search and potential at multiple timestamps within a day, so we would need to aggregate the data by day. 
 
+![daily price trend](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/daily_price_trend.png)
+
 
 
 ## Feature Importance
