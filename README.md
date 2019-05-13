@@ -57,7 +57,10 @@ From which we can tell that prop_country_id, prop_log_historical_price and prop_
 
 ## Modeling
 
-We applied a multi-stage modeling approach to resolve the complexity of the problem, by dividing them into several subproblems that are easier to tackle. 
+We applied a multi-layer modeling approach to resolve the complexity of the problem, by dividing them into several subproblems that are easier to tackle. First, we try to divide features by its nature into several feature groups, including User, Property, Time, and Competitors. We would then build model for each of the feature group (which refered as "first layer modeling").
+
+![modeling structure](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/modeling_structure.png)
+
 
 
     
