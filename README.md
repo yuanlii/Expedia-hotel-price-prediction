@@ -77,6 +77,8 @@ For time feature modeling, we would use ARIMA.
 
 ![Autocorrelation](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/autcorrelation_v2.png)
 
+![Time-series Modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/ts_prediction.png)
+
 ### 3. Multi-layer Modeling
 
 ## Conclusion
