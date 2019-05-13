@@ -81,6 +81,8 @@ For time feature modeling, we would use ARIMA.
 
 ![Time-series Modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/ts_prediction.png)
 
+![time prediction results](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/time_modeling_v2.png)
+
 ### 3. Multi-layer Modeling
 
 ## Conclusion
