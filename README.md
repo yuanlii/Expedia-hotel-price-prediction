@@ -73,6 +73,10 @@ For property feature group modeling, we fit several linear and non-linear models
 
 ### 2. Time Modeling
 
+For time feature modeling, we would use ARIMA. 
+
+![Autocorrelation](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/autcorrelation_v2.png)
+
 ### 3. Multi-layer Modeling
 
 ## Conclusion
