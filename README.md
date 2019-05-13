@@ -57,9 +57,27 @@ From which we can tell that prop_country_id, prop_log_historical_price and prop_
 
 ## Modeling
 
+TODO: more about rationale to adopt multi-layer modeling
+
 We applied a multi-layer modeling approach to resolve the complexity of the problem, by dividing them into several subproblems that are easier to tackle. First, we try to divide features by its nature into several feature groups, including User, Property, Time, and Competitors. We would then build model for each of the feature group (which refered as "first layer modeling"). After modeling selection for each feature group, including hyperparameter tuning and cross validation, we are able to get the best predictions based on each feature group. Then we would concatenate the predictions from each feature group modeling, and use as input to fit a second-layer model. 
 
 ![modeling structure](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/modeling_structure.png)
+
+## Results
+### 1. Property Modeling
+
+### 2. Time Modeling
+
+### 3. Multi-layer Modeling
+
+## Conclusion
+
+
+## More Exploration
+
+
+## Reflections
+
 
 
 
