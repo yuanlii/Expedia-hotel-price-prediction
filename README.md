@@ -85,6 +85,8 @@ For time feature modeling, we would use ARIMA.
 
 ### 3. Multi-layer Modeling
 
+![multi-layer modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/second_layer_prediction.png)
+
 ## Conclusion
 
 
