@@ -66,6 +66,8 @@ We applied a multi-layer modeling approach to resolve the complexity of the prob
 ![modeling structure](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/modeling_structure.png)
 
 
+![second-layer modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/multi-layer_modeling.png)
+
 
 
 ## More Exploration
