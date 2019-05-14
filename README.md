@@ -65,8 +65,22 @@ We applied a multi-layer modeling approach to resolve the complexity of the prob
 
 ![modeling structure](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/modeling_structure.png)
 
+How to implement such modeling pipeline using Python? After we get prediction from each of the model, first we need to pay attention to its format. If it is formatted as an ndarray, we would need to reshape it into array with shape (-1,1), and stack each formatted prediction vertically by column. Illustration below may further explain the entire process. 
 
 ![second-layer modeling](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/multi-layer_modeling.png)
+
+python codes snippet: _(complete code please see: ts_modeling_v2.py)_
+
+```python
+regression_y_pred_val = self.regression_y_pred_val.reshape(-1,1)
+regression_y_pred_test = self.regression_y_pred_test.reshape(-1,1)
+
+ARIMA_val_predictions = np.array(self.ARIMA_val_predictions).reshape(-1,1)
+ARIMA_test_predictions = np.array(self.ARIMA_test_predictions).reshape(-1,1)
+
+X_train = np.concatenate(( regression_y_pred_val, ARIMA_val_predictions), axis=1)
+X_test = np.concatenate(( regression_y_pred_test, ARIMA_test_predictions), axis=1)
+```
 
 
 
