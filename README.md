@@ -47,8 +47,14 @@ Our ultimate goal is to predict hotel room rate for one property listing in one 
 ![daily price trend](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/daily_price_trend.png)
 
 
+#### 5. Split data by time 
 
-## Feature Importance
+Sort data by time, and split data into training, validation and test set.
+
+![train test split](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/train_test_split.png)
+
+
+## Explore Feature Importance
 
 In order to understand the importance of each feature, we use XGBoost to get the importance of each feature:
 
@@ -57,7 +63,7 @@ In order to understand the importance of each feature, we use XGBoost to get the
 From which we can tell that prop_country_id, prop_log_historical_price and prop_review_score are the top 3 most importance features. This diagram gives us an understanding of what are the important features in terms of building model for the next stage.
 
 
-## Modeling
+## Modeling Methodology
 
 TODO: more about rationale to adopt multi-layer modeling
 
@@ -81,6 +87,9 @@ ARIMA_test_predictions = np.array(self.ARIMA_test_predictions).reshape(-1,1)
 X_train = np.concatenate(( regression_y_pred_val, ARIMA_val_predictions), axis=1)
 X_test = np.concatenate(( regression_y_pred_test, ARIMA_test_predictions), axis=1)
 ```
+
+
+
 
 
 
