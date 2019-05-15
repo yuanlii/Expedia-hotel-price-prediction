@@ -92,6 +92,7 @@ TODO: more explanation on ts + prop => validation as train, and test as test
 
 TODO: timeseries cross validation
 
+TODO: add presentation poster
 
 ## More Exploration
 
