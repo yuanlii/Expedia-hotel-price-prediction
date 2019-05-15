@@ -89,6 +89,7 @@ X_test = np.concatenate(( regression_y_pred_test, ARIMA_test_predictions), axis=
 ```
 
 TODO: more explanation on ts + prop => validation as train, and test as test
+
 TODO: timeseries cross validation
 
 
