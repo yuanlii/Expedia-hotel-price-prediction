@@ -1,7 +1,7 @@
 # Project Goal
 
 The overall goal of this project is to build a hotel room rate prediction system that helps customers to evaluate the price and determine the best time to book a room for traveling. Several questions that we would like to answer include:
-* When we book hotel, how can we know the price is reasonable or overcharged? 
+* When we book a hotel, how can we know the price is reasonable or overcharged? 
 * Can we have a number to benchmark?
 * Can we know the fluctuation of hotel room price by season?
 These are the questions that we want to answer throughout this project.
