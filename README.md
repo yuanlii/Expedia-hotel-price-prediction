@@ -91,9 +91,6 @@ X_test = np.concatenate(( regression_y_pred_test, ARIMA_test_predictions), axis=
 more explanation on ts + prop => validation as train, and test as test;
 timeseries cross validation
 
-presentation poster:
-
-![presentation poster](https://github.com/yuanlii/project-reports/blob/master/poster_si699_yuan%26Jing.pdf)
 
 
 ## More Exploration
@@ -101,6 +98,10 @@ presentation poster:
 * autoencoder
 * seq2seq
 
+
+If you want to know more about this project, please check our poster:
+
+![presentation poster](https://github.com/yuanlii/project-reports/blob/master/poster_si699_yuan%26Jing.pdf)
 
 
 
