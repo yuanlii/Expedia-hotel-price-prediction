@@ -101,7 +101,7 @@ timeseries cross validation
 
 If you want to know more about this project, please check our poster:
 
-![presentation poster](https://github.com/yuanlii/Expedia-hotel-price-prediction/blob/master/pictures/poster_si699_yuan%26Jing.pdf)
+![presentation poster](https://github.com/yuanlii/Expedia-hotel-price prediction/blob/master/pictures/poster_si699_yuan%26Jing.pdf)
 
 
 
