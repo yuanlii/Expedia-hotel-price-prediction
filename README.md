@@ -1,7 +1,7 @@
 # Project Goal
 
 The overall goal of this project is to build a hotel room rate prediction system that helps customers to evaluate the price and determine the best time to book a room for traveling. Several questions that we would like to answer include:
-* When we book hotel, how can we know the price is reasonable or overcharged? 
+* When we book a hotel, how can we know the price is reasonable or overcharged? 
 * Can we have a number to benchmark?
 * Can we know the fluctuation of hotel room price by season?
 These are the questions that we want to answer throughout this project.
@@ -23,32 +23,38 @@ We use Personalize Expedia hotel searches – ICDM 2013 from online Kaggle compe
 * If variable with missing data < 50%, we would replace NA values with median values
     
     
-#### 5. Log transform skewed data
+#### 2. Log transform skewed data
 
 First, we compute the skewness for each numeric variable. We defined variables with skewness > 0.75 as "highly skewed", and we would log transformed those variables with high skewness to make them more normaly distributed. 
    * more about skewness: For normally distributed data, the skewness should be about 0. For unimodal continuous distributions, a skewness value > 0 means that there is more weight in the right tail of the distribution. ([reference]((https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skew.html)))
 
 ![skewed price data](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/skewed_price_log_transformed.png)
     
-#### 2. Outlier value detection
+#### 3. Outlier value detection
 
 Hotel room rates can have as low as $0.2/night, and as high as $+5m/night; we remove those outliers that are significantly deviated from the rest of hotel room rate distribution
     
     
-#### 3. Convert categorical variables to continuous variables
+#### 4. Convert categorical variables to continuous variables
 
 For categorical variables with more than 100 instances, e.g., country_id, destination_id, property_id, etc. it wouldn't make sense to one-hot encoding them all; so what we did is to compute the popularity, i.e., how many times each instance of a category ever appear in the dataset to represent the instance itself. For example, for property_id = 116942, we count how many records with property_id = 116942 are there in the dataset, and use that continuous number to represent property_id = 116942. Same logic and transformation is applied to country_id and destination_id as well as other categorical variables.
 
 
-#### 4. Aggregate data based on time range
+#### 5. Aggregate data based on time range
 
 Our ultimate goal is to predict hotel room rate for one property listing in one single day. However, from the Expedia dataset, it only lists the data per user search and potential at multiple timestamps within a day, so we would need to aggregate the data by day. 
 
 ![daily price trend](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/daily_price_trend.png)
 
 
+#### 6. Split data by time 
 
-## Feature Importance
+Sort data by time, and split data into training, validation and test set.
+
+![train test split](https://github.com/yuanlii/Expedia_hotel_price_prediction/blob/master/pictures/train_test_split.png)
+
+
+## Explore Feature Importance
 
 In order to understand the importance of each feature, we use XGBoost to get the importance of each feature:
 
@@ -57,7 +63,7 @@ In order to understand the importance of each feature, we use XGBoost to get the
 From which we can tell that prop_country_id, prop_log_historical_price and prop_review_score are the top 3 most importance features. This diagram gives us an understanding of what are the important features in terms of building model for the next stage.
 
 
-## Modeling
+## Modeling Methodology
 
 TODO: more about rationale to adopt multi-layer modeling
 
@@ -82,13 +88,20 @@ X_train = np.concatenate(( regression_y_pred_val, ARIMA_val_predictions), axis=1
 X_test = np.concatenate(( regression_y_pred_test, ARIMA_test_predictions), axis=1)
 ```
 
+more explanation on ts + prop => validation as train, and test as test;
+timeseries cross validation
+
 
 
 ## More Exploration
 
+* autoencoder
+* seq2seq
 
 
-## Reflections
+If you want to know more about this project, please check our poster:
+
+![presentation poster](https://github.com/yuanlii/project-reports/blob/master/poster_si699_yuan%26Jing.pdf)
 
 
 
