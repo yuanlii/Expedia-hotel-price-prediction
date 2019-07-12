@@ -92,7 +92,9 @@ more explanation on ts + prop => validation as train, and test as test;
 timeseries cross validation
 
 presentation poster:
+
 ![presentation poster](https://github.com/yuanlii/project-reports/blob/master/poster_si699_yuan%26Jing.pdf)
+
 
 ## More Exploration
 
