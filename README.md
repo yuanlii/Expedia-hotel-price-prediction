@@ -86,15 +86,13 @@ X_train = np.concatenate(( regression_y_pred_val, ARIMA_val_predictions), axis=1
 X_test = np.concatenate(( regression_y_pred_test, ARIMA_test_predictions), axis=1)
 ```
 
-more explanation on ts + prop => validation as train, and test as test;
-timeseries cross validation
-
 
 
 ## More Exploration
 
 * autoencoder
 * seq2seq
+* timeseries cross validation
 
 
 If you want to know more about this project, please check our poster:
